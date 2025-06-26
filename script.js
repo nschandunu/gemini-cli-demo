@@ -22,6 +22,33 @@ const navSlide = () => {
 
 navSlide();
 
+document.addEventListener('DOMContentLoaded', () => {
+    const categoryCards = document.querySelectorAll('.category-card');
+
+    categoryCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const category = card.dataset.category;
+            window.location.href = `menu.html?category=${category}`;
+        });
+    });
+
+    // Filter menu items based on URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+
+    if (category) {
+        const menuCards = document.querySelectorAll('.menu-card');
+        menuCards.forEach(card => {
+            const cardCategory = card.querySelector('h2').textContent.toLowerCase();
+            if (cardCategory.includes(category)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+});
+
 @keyframes navLinkFade {
     from {
         opacity: 0;
