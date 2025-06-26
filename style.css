@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primary-color: #6F4E37; /* Coffee Brown */
     --secondary-color: #FFFDD0; /* Cream */
@@ -37,7 +41,8 @@ header {
 }
 
 .menu-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 .menu-card img {
@@ -76,12 +81,12 @@ header {
     padding: 40px 20px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 .category-card h2 {
@@ -113,6 +118,10 @@ header {
     margin: 0;
     padding: 0;
     gap: 2rem;
+}
+
+.logo a:hover {
+    color: var(--accent-color);
 }
 
 .nav-links a {
@@ -278,6 +287,30 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-links a {
+    color: var(--secondary-color);
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
 }
 
 .hero {
